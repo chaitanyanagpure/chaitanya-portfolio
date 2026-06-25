@@ -16,7 +16,7 @@ export const educationHistory: Education[] = [
     duration: "2023 – 2026",
     score: "CGPA: 8.4",
     location: "Navi Mumbai, Maharashtra",
-    certificateUrl: "https://drive.google.com/file/d/1DI74JiWkm4Ob3qglKHNIx1QC7JUbcF_C/view?usp=drive_link",
+    certificateUrl: "https://drive.google.com/file/d/1rlIRp7i36eREZ7OVGZg5178UusbfNd7s/view?usp=drive_link",
     highlights: [
       "Graduated with honors, focusing on artificial intelligence architectures, deep neural network training pipelines, and system configurations.",
       "Capstone Project: Developed and deployed a medical diagnostic assistance tool implementing CNNs and vision transformer architectures.",
