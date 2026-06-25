@@ -24,7 +24,7 @@ export const personalInfo: PersonalInfo = {
   location: "Maharashtra, India",
   github: "https://github.com/chaitanyanagpure",
   linkedin: "https://www.linkedin.com/in/chaitanyanagpure",
-  resumeUrl: "https://drive.google.com/file/d/1mssZBrG3c4Ivjlg1hq3mxe90PnQC1N-v/view?usp=drive_link",
+  resumeUrl: "https://drive.google.com/file/d/14U4Hr9f5KY8K2dengVnPO0hYUxamj_e9/view?usp=drive_link",
   specialties: [
     "Machine Learning",
     "Deep Learning",
