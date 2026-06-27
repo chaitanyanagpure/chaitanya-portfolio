@@ -45,7 +45,7 @@ export const educationHistory: Education[] = [
     institution: "De Paul English Medium School, Yeola",
     degree: "Secondary School Certificate (SSC)",
     duration: "2010 – 2020",
-    score: "Percentage: 89.90%",
+    score: "Percentage: 89.80%",
     location: "Yeola, Maharashtra",
     certificateUrl: "https://drive.google.com/file/d/1MCGsgK2Kq_JpCzSB1jtyw9h_63FGSAIx/view?usp=drive_link",
     localImageUrl: "/images/certs/ssc-certificate.png",
