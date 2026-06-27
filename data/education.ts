@@ -5,6 +5,7 @@ export interface Education {
   score: string;
   location: string;
   certificateUrl?: string;
+  localImageUrl?: string;
   highlights?: string[];
   subjects?: string[];
 }
@@ -17,6 +18,7 @@ export const educationHistory: Education[] = [
     score: "CGPA: 8.4",
     location: "Navi Mumbai, Maharashtra",
     certificateUrl: "https://drive.google.com/file/d/1rlIRp7i36eREZ7OVGZg5178UusbfNd7s/view?usp=drive_link",
+    localImageUrl: "/images/certs/bachelor-degree.png",
     highlights: [
       "Graduated with honors, focusing on artificial intelligence architectures, deep neural network training pipelines, and system configurations.",
       "Capstone Project: Developed and deployed a medical diagnostic assistance tool implementing CNNs and vision transformer architectures.",
@@ -31,6 +33,7 @@ export const educationHistory: Education[] = [
     score: "Percentage: 79.53%",
     location: "Kopargaon, Maharashtra",
     certificateUrl: "https://drive.google.com/file/d/1Ie7OyLmMhip1hs4hkyEutFlxgjuAGVAT/view?usp=drive_link",
+    localImageUrl: "/images/certs/diploma-certificate.png",
     highlights: [
       "Acquired core fundamentals in computer science including OOP principles, database designs, hardware systems, and systems engineering.",
       "Developed a custom school admin database utility with secure role-based controls and transaction reporting tools.",
@@ -45,6 +48,7 @@ export const educationHistory: Education[] = [
     score: "Percentage: 89.90%",
     location: "Yeola, Maharashtra",
     certificateUrl: "https://drive.google.com/file/d/1MCGsgK2Kq_JpCzSB1jtyw9h_63FGSAIx/view?usp=drive_link",
+    localImageUrl: "/images/certs/ssc-certificate.png",
     highlights: [
       "Graduated secondary school under State Board curriculum with high distinction.",
       "Acclaimed academic excellence awards in Mathematics and General Sciences.",

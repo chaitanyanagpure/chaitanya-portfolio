@@ -8,6 +8,22 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Education() {
   const [activeCert, setActiveCert] = useState<EducationType | null>(null);
 
+  // Safe close handler to prevent WebKit iframe touch freeze bug on iOS/mobile Safari
+  const handleClose = () => {
+    if (typeof window !== "undefined") {
+      try {
+        window.focus();
+        document.body.focus();
+        if (document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur();
+        }
+      } catch (err) {
+        console.error("Focus restoration error:", err);
+      }
+    }
+    setActiveCert(null);
+  };
+
   // Helper to parse Google Drive URLs and extract file ID
   const getGoogleDriveId = (url: string): string | null => {
     if (!url || !url.includes("drive.google.com")) return null;
@@ -25,14 +41,11 @@ export default function Education() {
   useEffect(() => {
     if (activeCert) {
       document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
     }
     return () => {
       document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
     };
   }, [activeCert]);
 
@@ -139,7 +152,7 @@ export default function Education() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-lg flex items-center justify-center p-4 overflow-y-auto"
-            onClick={() => setActiveCert(null)}
+            onClick={handleClose}
           >
             <motion.div
               initial={{ scale: 0.95, y: 30 }}
@@ -160,7 +173,7 @@ export default function Education() {
                   </p>
                 </div>
                 <button
-                  onClick={() => setActiveCert(null)}
+                  onClick={handleClose}
                   className="p-2 text-neutral-400 hover:text-white rounded-full bg-neutral-900 border border-neutral-800/60 hover:bg-neutral-800/80 transition-colors cursor-pointer shrink-0"
                 >
                   <X size={18} />

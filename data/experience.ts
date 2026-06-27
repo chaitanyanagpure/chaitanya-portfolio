@@ -5,6 +5,7 @@ export interface Experience {
   location: string;
   responsibilities: string[];
   certificateUrl?: string;
+  localImageUrl?: string;
   skills?: string[];
 }
 
@@ -21,6 +22,7 @@ export const experiences: Experience[] = [
       "Designed and executed process optimization strategies that reduced manual data reconciliation times."
     ],
     certificateUrl: "https://drive.google.com/file/d/1JqjW_LGCsdYGmSqOuVKu1diqvNg-q_Cg/view?usp=drive_link",
+    localImageUrl: "/images/certs/jio-certificate.png",
     skills: ["Python", "SQL", "Power BI", "Advanced Excel", "Process Optimization", "Data Modeling", "Business Intelligence"]
   }
 ];

@@ -7,6 +7,7 @@ export interface Certification {
   verificationUrl: string;
   imageUrl: string; // Issuer logo image path
   certificateUrl?: string; // Actual certificate scan path
+  localImageUrl?: string; // Local image file path
 }
 
 export const certifications: Certification[] = [
@@ -18,7 +19,8 @@ export const certifications: Certification[] = [
     skills: ["AI Foundations", "Machine Learning Algorithms", "Troubleshooting Agents", "Azure AI", "Model Optimization"],
     verificationUrl: "https://coursera.org/verify/professional-cert/QJFQKR5XM9SA",
     imageUrl: "/images/certs/microsoft-logo.png",
-    certificateUrl: "https://drive.google.com/file/d/1IuFOUl6WEVaAD_rDFzYMbFTyr4fzmxJV/view?usp=drive_link"
+    certificateUrl: "https://drive.google.com/file/d/1IuFOUl6WEVaAD_rDFzYMbFTyr4fzmxJV/view?usp=drive_link",
+    localImageUrl: "/images/certs/microsoft-ai-ml-professional.jpg"
   },
   {
     id: "microsoft-ai-ml-algorithms",
@@ -28,7 +30,8 @@ export const certifications: Certification[] = [
     skills: ["Supervised Learning", "Unsupervised Learning", "Algorithms", "Model Evaluation", "ML Pipelines"],
     verificationUrl: "https://coursera.org/verify/FAR1F1U2JH84",
     imageUrl: "/images/certs/microsoft-logo.png",
-    certificateUrl: "/images/certs/microsoft-ai-ml-algorithms.jpg"
+    certificateUrl: "/images/certs/microsoft-ai-ml-algorithms.jpg",
+    localImageUrl: "/images/certs/microsoft-ai-ml-algorithms.jpg"
   },
   {
     id: "ibm-python-ai-development",
@@ -38,7 +41,8 @@ export const certifications: Certification[] = [
     skills: ["Python Programming", "Data Structures", "APIs", "Web Scraping", "Data Analysis"],
     verificationUrl: "https://coursera.org/verify/AV2XSTYTLILW",
     imageUrl: "/images/certs/ibm-logo.png",
-    certificateUrl: "/images/certs/ibm-python-ai.jpg"
+    certificateUrl: "/images/certs/ibm-python-ai.jpg",
+    localImageUrl: "/images/certs/ibm-python-ai.jpg"
   },
   {
     id: "google-data-analytics-professional",
@@ -48,6 +52,7 @@ export const certifications: Certification[] = [
     skills: ["Data Analysis", "SQL", "Tableau", "Data Presentation", "Spreadsheets", "Problem Solving"],
     verificationUrl: "https://coursera.org/verify/professional-cert/ZHTEHK1YZXRL",
     imageUrl: "/images/certs/google-logo.png",
-    certificateUrl: "/images/certs/google-data-analytics-professional.jpg"
+    certificateUrl: "/images/certs/google-data-analytics-professional.jpg",
+    localImageUrl: "/images/certs/google-data-analytics-professional.jpg"
   }
 ];
