@@ -15,9 +15,9 @@ export const educationHistory: Education[] = [
     institution: "Smt. Indira Gandhi College of Engineering",
     degree: "Bachelor of Engineering in Artificial Intelligence and Machine Learning",
     duration: "2023 – 2026",
-    score: "CGPA: 8.4",
+    score: "CGPA: 8.31",
     location: "Navi Mumbai, Maharashtra",
-    certificateUrl: "https://drive.google.com/file/d/1rlIRp7i36eREZ7OVGZg5178UusbfNd7s/view?usp=drive_link",
+    certificateUrl: "https://drive.google.com/file/d/1C2hMRU9Vw6ptLTjtzwGqqfVzGWub25eV/view?usp=drive_link",
     localImageUrl: "/images/certs/bachelor-degree.png",
     highlights: [
       "Graduated with honors, focusing on artificial intelligence architectures, deep neural network training pipelines, and system configurations.",
