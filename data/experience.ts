@@ -21,7 +21,7 @@ export const experiences: Experience[] = [
       "Collaborated with cross-functional product, development, and data teams to improve workflow efficiency and system accuracy.",
       "Designed and executed process optimization strategies that reduced manual data reconciliation times."
     ],
-    certificateUrl: "https://drive.google.com/file/d/1JqjW_LGCsdYGmSqOuVKu1diqvNg-q_Cg/view?usp=drive_link",
+    certificateUrl: "https://drive.google.com/file/d/1_A-L7N50mFrLTW1sdH8n0oZiIzfA-3Q5/view?usp=drive_link",
     localImageUrl: "/images/certs/jio-certificate.png",
     skills: ["Python", "SQL", "Power BI", "Advanced Excel", "Process Optimization", "Data Modeling", "Business Intelligence"]
   }
