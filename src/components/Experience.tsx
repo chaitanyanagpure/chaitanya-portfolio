@@ -83,7 +83,7 @@ export default function Experience() {
                         <span>{exp.role}</span>
                       </span>
                       <span className="text-[9px] font-mono font-semibold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
-                        Jio Telecom
+                        {exp.company === "Velox Solutions Pvt. Ltd." ? "Ongoing" : "Completed"}
                       </span>
                     </div>
                     <h4 className="text-xl font-bold text-white tracking-tight">
