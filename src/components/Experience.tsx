@@ -1,13 +1,25 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
-import { Briefcase, Calendar, MapPin, FileText, X, Download, ExternalLink, TrendingUp, BarChart3, Users, Target } from "lucide-react";
+import { Briefcase, Calendar, MapPin, FileText, X, Download, ExternalLink, TrendingUp, BarChart3, Users, Target, ShieldCheck, BrainCircuit, Activity, Workflow } from "lucide-react";
 import { experiences, Experience as ExperienceType } from "../../data/experience";
 import { motion, AnimatePresence } from "framer-motion";
+const responsibilityDetails = {
+  "Reliance Jio": [
+    { title: "Data Analysis & Insights", icon: TrendingUp },
+    { title: "Business Intelligence", icon: BarChart3 },
+    { title: "Cross-Functional Sync", icon: Users },
+    { title: "Process Optimization", icon: Target },
+  ],
+  "Velox Solutions Pvt. Ltd.": [
+    { title: "AI-Driven Incident Response Automation", icon: ShieldCheck },
+    { title: "User and Entity Behavior Analytics (UEBA)", icon: BrainCircuit },
+    { title: "Machine Learning & Anomaly Detection", icon: Activity },
+    { title: "Intelligent Security Automation", icon: Workflow },
+  ],
+};
 
 export default function Experience() {
   const [activeCert, setActiveCert] = useState<ExperienceType | null>(null);
-
   // Safe close handler to prevent WebKit iframe touch freeze bug on iOS/mobile Safari
   const handleClose = () => {
     if (typeof window !== "undefined") {
@@ -23,7 +35,6 @@ export default function Experience() {
     }
     setActiveCert(null);
   };
-
   // Lock body scroll when modal is open
   useEffect(() => {
     if (activeCert) {
@@ -35,24 +46,20 @@ export default function Experience() {
       document.body.style.overflow = "";
     };
   }, [activeCert]);
-
   // Helper to parse Google Drive URLs and extract file ID
   const getGoogleDriveId = (url?: string): string | null => {
     if (!url || !url.includes("drive.google.com")) return null;
     const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
     return match ? match[1] : null;
   };
-
   const driveId = activeCert ? getGoogleDriveId(activeCert.certificateUrl) : null;
   const iframeSrc = driveId ? `https://drive.google.com/file/d/${driveId}/preview` : "";
   const downloadUrl = driveId
     ? `https://drive.google.com/uc?export=download&id=${driveId}`
     : activeCert?.certificateUrl || "";
-
   return (
     <section id="experience" className="py-24 px-4 md:px-8 lg:px-12 relative bg-neutral-950/40">
       <div className="max-w-4xl mx-auto z-10 relative">
-        
         {/* Section Heading */}
         <div className="mb-16 text-center">
           <h2 className="text-xs font-mono uppercase tracking-[0.2em] text-purple-400 font-semibold mb-2">
@@ -63,17 +70,14 @@ export default function Experience() {
             Professional History
           </h3>
         </div>
-
         {/* Detailed Experience Timeline (Centered) */}
         <div className="relative border-l border-neutral-800 ml-4 md:ml-6 space-y-12">
           {experiences.map((exp, idx) => (
             <div key={idx} className="relative pl-8 md:pl-10 group">
               {/* Timeline indicator node */}
               <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 border-purple-500 bg-neutral-950 group-hover:bg-purple-400 transition-colors duration-300" />
-              
               {/* Experience Info Card */}
               <div className="glass-panel rounded-2xl p-6 md:p-8 shadow-md hover:border-neutral-700/80 transition-all duration-300 space-y-5">
-                
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-neutral-900">
                   <div>
@@ -90,7 +94,6 @@ export default function Experience() {
                       {exp.company}
                     </h4>
                   </div>
-                  
                   {/* Metadata */}
                   <div className="flex flex-col text-neutral-400 font-mono text-xs space-y-1 md:text-right">
                     <span className="flex items-center md:justify-end space-x-1">
@@ -103,61 +106,29 @@ export default function Experience() {
                     </span>
                   </div>
                 </div>
-
                 {/* Styled Domain Achievements */}
-                <div className="space-y-4 pt-1">
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="mt-0.5 p-1 bg-purple-500/10 border border-purple-500/20 rounded-md">
-                      <TrendingUp size={12} className="text-purple-400" />
+              <div className="space-y-4 pt-1">
+                {exp.responsibilities.map((description, rIdx) => {
+                  const details = responsibilityDetails[exp.company as keyof typeof responsibilityDetails]?.[rIdx];
+                  const Icon = details?.icon ?? Briefcase;
+                  return (
+                    <div key={rIdx} className="flex items-start space-x-3">
+                      <div className="mt-0.5 p-1 bg-purple-500/10 border border-purple-500/20 rounded-md">
+                        <Icon size={12} className="text-purple-400" />
+                      </div>
+                      <div className="space-y-0.5">
+                        <h5 className="text-[11px] font-mono font-bold text-neutral-300 uppercase tracking-wide">
+                          {details?.title ?? "Responsibility"}
+                        </h5>
+                        <p className="text-xs md:text-sm text-neutral-400 font-light leading-relaxed">
+                          {description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="space-y-0.5">
-                      <h5 className="text-[11px] font-mono font-bold text-neutral-300 uppercase tracking-wide">Data Analysis & Insights</h5>
-                      <p className="text-xs md:text-sm text-neutral-400 font-light leading-relaxed">
-                        {exp.responsibilities[0]}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="mt-0.5 p-1 bg-purple-500/10 border border-purple-500/20 rounded-md">
-                      <BarChart3 size={12} className="text-purple-400" />
-                    </div>
-                    <div className="space-y-0.5">
-                      <h5 className="text-[11px] font-mono font-bold text-neutral-300 uppercase tracking-wide">Business Intelligence</h5>
-                      <p className="text-xs md:text-sm text-neutral-400 font-light leading-relaxed">
-                        {exp.responsibilities[1]}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="mt-0.5 p-1 bg-purple-500/10 border border-purple-500/20 rounded-md">
-                      <Users size={12} className="text-purple-400" />
-                    </div>
-                    <div className="space-y-0.5">
-                      <h5 className="text-[11px] font-mono font-bold text-neutral-300 uppercase tracking-wide">Cross-Functional Sync</h5>
-                      <p className="text-xs md:text-sm text-neutral-400 font-light leading-relaxed">
-                        {exp.responsibilities[2]}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="mt-0.5 p-1 bg-purple-500/10 border border-purple-500/20 rounded-md">
-                      <Target size={12} className="text-purple-400" />
-                    </div>
-                    <div className="space-y-0.5">
-                      <h5 className="text-[11px] font-mono font-bold text-neutral-300 uppercase tracking-wide">Process Optimization</h5>
-                      <p className="text-xs md:text-sm text-neutral-400 font-light leading-relaxed">
-                        {exp.responsibilities[3]}
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* Applied Skills Badges */}
+                  );
+                })}
+              </div>
+              {/* Applied Skills Badges */}
                 {exp.skills && (
                   <div className="flex flex-wrap gap-1.5 pt-2 justify-start border-t border-neutral-900/60">
                     {exp.skills.map((skill, sIdx) => (
@@ -170,7 +141,6 @@ export default function Experience() {
                     ))}
                   </div>
                 )}
-
                 {/* Optional Certificate Button */}
                 {exp.certificateUrl && (
                   <div className="pt-3 border-t border-neutral-900/60 flex justify-end">
@@ -183,14 +153,11 @@ export default function Experience() {
                     </button>
                   </div>
                 )}
-
               </div>
             </div>
           ))}
         </div>
-
       </div>
-
       {/* Certificate Modal Viewer */}
       <AnimatePresence>
         {activeCert && activeCert.certificateUrl && (
@@ -226,7 +193,6 @@ export default function Experience() {
                   <X size={18} />
                 </button>
               </div>
-
               {/* Content body (Scrollable) */}
               <div className="overflow-y-auto p-6 md:p-8 flex-grow flex items-center justify-center bg-neutral-950">
                 <div className="relative w-full rounded-2xl overflow-hidden bg-neutral-900/50 border border-neutral-800/80 shadow-2xl p-2 group">
@@ -248,7 +214,6 @@ export default function Experience() {
                   {!driveId && <div className="absolute inset-0 bg-gradient-to-t from-purple-500/5 via-transparent to-transparent pointer-events-none" />}
                 </div>
               </div>
-
               {/* Footer bar */}
               <div className="flex flex-col sm:flex-row items-center justify-end gap-3 px-6 py-4 border-t border-neutral-800/80 bg-neutral-950/80 sticky bottom-0 z-20 backdrop-blur-md">
                 <a
@@ -261,7 +226,6 @@ export default function Experience() {
                   <Download size={14} />
                   <span>Download Certificate</span>
                 </a>
-
                 <a
                   href={activeCert.certificateUrl}
                   target="_blank"
